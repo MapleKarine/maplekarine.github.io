@@ -1,0 +1,44 @@
+
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(https://cdn.jsdelivr.net/npm/beercss@4.0.20/dist/cdn/material-symbols-outlined.woff2) format("woff2");
+}
+
+:root[color-theme="dark"] {
+  color-scheme: dark;
+  --fg-color: oklch(0.82 0.01 235);
+  --header-color: oklch(0.9 0.01 235);
+  --table-border: oklch(0.32 0.01 235);
+  --border: oklch(0.32 0.01 235);
+  --bg-color: oklch(0.21 0.005 235);
+  --fill-color: oklch(0.18 0.01 235);
+  --fill-secondary-color: #324b49;
+  --link-color: oklch(0.68 0.001 235);
+  --muted-color: oklch(0.68 0.001 235);
+
+  --vernacular-color: #69DDD4;
+  --accent: #69DDD4;
+
+  --font-icon: "Material Symbols Outlined";
+}
+
+:root[color-theme="light"] {
+  color-scheme: light;
+  --fg-color: oklch(21% 0.005 235);
+  --header-color: oklch(0.11 0.005 235);
+  --bg-color: oklch(0.96 0 0);
+  --fill-color: oklch(93% 0 0);
+  --fill-secondary-color: oklch(87% 0 0);
+  --table-border: oklch(75% 0 0);
+  --border: oklch(75% 0 0);
+  --link-color: oklch(21% 0.005 235 /.8);
+  --muted-color: oklch(21% 0.005 235 /.8);
+
+  --vernacular-color: #d81b60;
+  --accent: #d81b60;
+
+  --font-icon: "Material Symbols Outlined";
+}
