@@ -88,6 +88,7 @@
 }
 
 .justify-center { justify-content: center; }
+.align-center { align-items: center }
 
 .wrap {
   flex-wrap: wrap;
@@ -493,6 +494,7 @@ button.active {
   min-block-size: var(--_input);
   display: flex;
   flex-direction: column;
+  position: relative;
 }
 
 .field>:is(input,textarea,select) {
@@ -520,7 +522,64 @@ button.active {
   padding-inline: 0.625rem;
 }
 
+.field>.icon {
+  position: absolute;
+  inset: calc((var(--_input, 0) / 2) - .75rem) auto auto auto;
+  cursor: pointer;
+  z-index: 10;
+  inline-size: 1.5rem;
+  block-size: 1.5rem;
+  margin: auto 0;
+  pointer-events: none;
+}
 
+.field>.icon {
+  inset: calc(var(--_middle, 0) - .75rem) 0.75rem auto auto;
+}
+
+.field>label {
+  --_start: 1rem;
+  position: absolute;
+  inset: -.5rem .9375rem 0 var(--_start);
+  display: flex;
+  block-size: calc(var(--_input, 0) + 1rem);
+  line-height: calc(var(--_input, 0) + 1rem);
+  font-size: 1rem;
+  transition: all .2s;
+  gap: .25rem;
+  white-space: nowrap;
+  pointer-events: none
+}
+
+.field>select+label {
+  block-size: 1rem;
+  line-height: 1rem;
+  font-size: .75rem;
+}
+
+.field>select {
+  clip-path: polygon(-2% -2%, .75rem -2%, .75rem .5rem, calc(100% - 1rem) .5rem, calc(100% - 1rem) -2%, 102% -2%, 102% 102%, -2% 102%);
+  -webkit-user-select: none;
+  user-select: none
+}
+
+.field>select>option {
+  background: var(--bg-color);
+}
+
+.field>label:after {
+  content: "";
+  display: block;
+  margin: .5rem 0 0;
+  border-block-start: .0625rem solid var(--border);
+  block-size: 1rem;
+  transition: none;
+  flex: auto;
+}
+
+.field>:focus+label:after {
+  border-block-start:.125rem solid var(--border)
+}
 
 
 a:not(.transparent) {
