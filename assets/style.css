@@ -11,6 +11,18 @@
   }
 }
 
+@keyframes to-linear-progress {
+  0% {
+    margin: 0 0 0 -100%
+  }
+  50% {
+    margin: 0
+  }
+  to {
+    margin: 0 0 0 100%
+  }
+}
+
 .animate-out {
   animation: slide-down 150ms reverse;
 }
@@ -88,6 +100,7 @@
 }
 
 .justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
 .align-center { align-items: center }
 
 .wrap {
@@ -432,6 +445,11 @@ nav.group > :is(button,.button) {
   border: 1px solid var(--accent);
 }
 
+:is(button,.button)[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 :is(button,.button).small {
   --_size: 2rem;
   --_padding: .75rem;
@@ -495,6 +513,11 @@ button.active {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+
+.field.tiny {
+  --_input: 1.8rem;
+  --_start: 0.25rem;
 }
 
 .field>:is(input,textarea,select) {
@@ -582,6 +605,168 @@ button.active {
 }
 
 
+menu {
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 0 .25rem .5rem 0 #0006;
+  background-color: var(--fill-color);
+  z-index: 13;
+  text-transform: none;
+  max-block-size: 50vh;
+  /*inline-size: 100%;*/
+  color: var(--fg-color);
+  text-align: start;
+  transition: all .1s .1s;
+  border-radius: .5rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: .125rem;
+  padding: .25rem;
+  font-size: .875rem;
+  font-weight: 400;
+  line-height: normal;
+  display: flex;
+  position: absolute;
+  inset: auto auto 0 0;
+  overflow: hidden auto;
+  transform: scale(.8) translateY(120%);
+  /*max-inline-size: none !important;*/
+
+  white-space: nowrap!important;
+  inline-size: max-content!important
+}
+
+menu.active, :not([data-ui]):focus-within>menu, menu>li:hover>menu, menu>li>menu:hover {
+  opacity: 1;
+  visibility: visible;
+  transition: all .1s, background-color 0s;
+  transform: scale(1) translateY(100%);
+}
+
+menu>li, menu>li>a:only-child {
+  all: unset;
+  box-sizing: border-box;
+  text-align: start;
+  align-self: normal;
+  align-items: center;
+  justify-content: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+  min-block-size: 2.75rem;
+  transition: border-radius .1s;
+  border-radius: .25rem;
+  flex: 1;
+  gap: 1rem;
+  padding: .5rem 1rem;
+  display: flex;
+  position: relative;
+  margin: 0 !important;
+}
+
+menu * {
+  white-space: inherit !important;
+}
+
+menu>li:hover {
+  background-color: color-mix(in srgb, currentColor 10%, transparent);
+}
+
+menu.left {
+  inset: auto 0 0 auto;
+}
+
+menu.right {
+  inset: auto auto 0 0;
+}
+
+
+div:not([class]):has(menu) {
+  display: inline-flex;
+  position: relative;
+}
+
+.tabs {
+  display: flex;
+  flex-direction: row;
+  min-height: 3.5em;
+  padding-top: 10px;
+}
+
+.tabs > * {
+  border-bottom: 1px solid var(--border);
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-radius: 1em 1em 0 0;
+  padding: 10px 8px;
+  flex-grow: 1;
+  text-align: center;
+  user-select: none;
+  cursor: pointer;
+}
+
+.tabs > .active {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border);
+}
+
+.tabs:before, .tabs:after {
+  border-bottom: 1px solid var(--border);
+  content: "";
+  display: block;
+  width: 10px;
+}
+
+.tabs-box {
+  border-radius: 0;
+  border-bottom: 1px solid var(--border);
+  border-left: 1px solid var(--border);
+  border-right: 1px solid var(--border); 
+}
+
+progress {
+  --_size: .25rem;
+  inline-size: 100%;
+  block-size: var(--_size);
+  color: var(--accent);
+  background: #333235;
+  writing-mode: horizontal-tb;
+  appearance: none;
+  direction: ltr;
+  border: none;
+  border-radius: 1rem;
+  flex: none;
+  position: relative;
+  overflow: hidden;
+}
+
+progress:not(.circle,[value]):after {
+  content: "";
+  clip-path: none;
+  background: currentColor;
+  block-size: 100%;
+  inline-size: 100%;
+  animation: 3.2s infinite to-linear-progress;
+  position: absolute;
+  inset: 0;
+}
+
+progress::-webkit-progress-bar {
+  background: 0 0
+}
+
+progress::-webkit-progress-value {
+  background: currentColor
+}
+
+progress::-moz-progress-bar {
+  background: currentColor
+}
+
+
+
 a:not(.transparent) {
   color: var(--link-color);
   border-bottom: 0.05em solid;
@@ -607,10 +792,6 @@ code.code {
   font: inherit;
   color: var(--muted-color);
 }
-
-
-
-
 
 i.icon,
 :is(.checkbox, .radio, .radiobutton, .switch) > span::before,
@@ -765,3 +946,12 @@ label {
   box-shadow: var(--border);
 }
 
+.textarea {
+  font-family: monospace;
+  direction: ltr;
+  color: var(--fg-color);
+  background: var(--bg-color);
+  border: 1px solid var(--table-border);
+  border-radius: 5px;
+  padding: 0.5rem;
+}

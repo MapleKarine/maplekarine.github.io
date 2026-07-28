@@ -21,6 +21,8 @@
 
   --vernacular-color: #69DDD4;
   --accent: #69DDD4;
+  --secondary: #6959c1;
+  --tertiary: #303481;
 
   --font-icon: "Material Symbols Outlined";
 }
@@ -39,6 +41,8 @@
 
   --vernacular-color: #d81b60;
   --accent: #d81b60;
+  --secondary: #aa83e6;
+  --tertiary: #c75dde;
 
   --font-icon: "Material Symbols Outlined";
 }
