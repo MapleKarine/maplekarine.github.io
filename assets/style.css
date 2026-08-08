@@ -304,7 +304,8 @@ fieldset > legend {
 
 summary {
   list-style-type: none;
-  cursor: pointer
+  cursor: pointer;
+  outline: none;
 }
 
 summary::-webkit-details-marker {
@@ -545,6 +546,9 @@ button.active {
   padding-inline: 0.625rem;
 }
 
+.field.suffix>:is(input,textarea,select):focus { padding-inline-end: 2.875rem; }
+.field.suffix>:is(input,textarea,select) { padding-inline-end: 2.9375rem; }
+
 .field>.icon {
   position: absolute;
   inset: calc((var(--_input, 0) / 2) - .75rem) auto auto auto;
@@ -565,6 +569,7 @@ button.active {
   position: absolute;
   inset: -.5rem .9375rem 0 var(--_start);
   display: flex;
+  color: var(--muted-color);
   block-size: calc(var(--_input, 0) + 1rem);
   line-height: calc(var(--_input, 0) + 1rem);
   font-size: 1rem;
@@ -580,7 +585,7 @@ button.active {
   font-size: .75rem;
 }
 
-.field>select {
+.field:has(label)>select {
   clip-path: polygon(-2% -2%, .75rem -2%, .75rem .5rem, calc(100% - 1rem) .5rem, calc(100% - 1rem) -2%, 102% -2%, 102% 102%, -2% 102%);
   -webkit-user-select: none;
   user-select: none
@@ -602,6 +607,17 @@ button.active {
 
 .field>:focus+label:after {
   border-block-start:.125rem solid var(--border)
+}
+
+
+.field>input:is(:focus,[placeholder]:not(:placeholder-shown))+label {
+  block-size: 1rem;
+  line-height: 1rem;
+  font-size: .75rem;
+}
+
+.field>input:is(:focus,[placeholder]:not(:placeholder-shown)) {
+    clip-path: polygon(-2% -2%, .75rem -2%, .75rem .5rem, calc(100% - 1rem) .5rem, calc(100% - 1rem) -2%, 102% -2%, 102% 102%, -2% 102%);
 }
 
 
