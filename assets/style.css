@@ -369,13 +369,40 @@ li {
   overflow-x: auto;
 }
 
+.table-overflow .text-center td,
+.table-overflow .text-center th {
+  text-align: center;
+}
+
+.table-overflow .text-middle td,
+.table-overflow .text-middle th {
+  vertical-align: middle;
+}
+
+.table-overflow .table-dark td,
+.table-overflow .table-dark th {
+  border: 1px solid var(--table-border);
+  background: #8881;
+}
+
+.table-overflow .line-table-even tr td:nth-child(even) {
+  border-left: 1px solid var(--fg-color, rgb(211, 211, 211));
+  padding-right: 2em;
+}
+
+table {
+  box-sizing: border-box;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+}
+
 td, th {
   color: inherit;
   fill: inherit;
   position: relative;
   vertical-align: top;
   text-align: start;
-  padding: 7px 9px;
+  padding: 4px 9px;
   min-height: 32px;
 }
 
@@ -970,4 +997,93 @@ label {
   border: 1px solid var(--table-border);
   border-radius: 5px;
   padding: 0.5rem;
+}
+
+body:has(.conlang-article) {
+  grid-template-columns: 220px 1fr min(50rem, 64vw) 1fr;
+}
+
+.conlang-article {
+  grid-column: 3;
+}
+
+.conlang-article em {
+  font-style: normal;
+  color: var(--vernacular-color);
+}
+
+.conlang-article h1,
+.conlang-article h2,
+.conlang-article h3,
+.conlang-article h4,
+.conlang-article h5,
+.conlang-article h6
+{
+  scroll-margin-top: 64px;
+}
+
+
+
+#article-toc {
+  padding: 0;
+  margin: 0;
+  border: none;
+  position: fixed;
+  left: 0px;
+  background: var(--bg-color);
+  top: calc(48px);
+  width: 220px;
+  font-size: smaller;
+  grid-column: 1;
+}
+
+#article-toc .sticky {
+  padding: 0px 0.25rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 48px);
+  border-right: 1px solid var(--table-border);
+  scrollbar-width: none;
+}
+
+@media only screen and (max-width: 768px) {
+  #article-toc {
+    display: none;
+  }
+
+  body:has(.conlang-article) {
+    grid-template-columns: 0px 1fr min(50rem, 64vw) 1fr;
+  }
+}
+
+.toc ul:first-child {
+  list-style-type: none;
+  padding-inline-start: 0ch;
+}
+
+.toc ul {
+  list-style-type: none;
+  padding-inline-start: 2ch;
+}
+
+.toc li {
+  margin: 0.75rem 0;
+}
+
+.toc li.active a {
+  color: var(--accent);
+}
+
+.toc a {
+  border-bottom: none;
+  text-decoration: none;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+
+.bullet {
+  --_size: 0.6rem;
+  border-radius: 50%;
+  block-size: var(--_size);
+  inline-size: var(--_size);
+  display: inline-block;
 }

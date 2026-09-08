@@ -1,0 +1,44 @@
+.gloss-text {
+    color: var(--muted-color);
+    height: 1.4em;
+}
+
+.gloss-em {
+    color: var(--accent);
+    font-style: italic;
+}
+
+.gloss-translation {
+    margin-block-start: 0em;
+    font-style: italic;
+}
+
+.gloss-abbr {
+    font-variant: small-caps;
+    text-underline-offset: 4px;
+}
+
+.gloss-ex {
+    font-weight: bold;
+    margin-bottom: 0.8em;
+    margin-top: 10px;
+}
+
+.gloss-lbl {
+    margin-bottom: 0.5em;
+}
+
+.gloss-div {
+    position: relative;
+    margin-bottom: 1em;
+}
+
+.gloss-marker-number {
+    position: absolute;
+    left: 0;
+    color: var(--muted-color);
+}
+
+.gloss-marker {
+    margin-left: 40px;
+}

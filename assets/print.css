@@ -1,0 +1,42 @@
+@media print {
+    @page {
+        size: A4 portrait;
+        margin: 10mm 10mm;
+    }
+
+    html {
+        font-size: 10pt;
+    }
+
+    body {
+        color-scheme: light;
+        --fg-color: oklch(0% 0 0);
+        --header-color: oklch(0% 0 0);
+        --bg-color: oklch(100% 0 0);
+        --table-border: oklch(0% 0 0 /.7);
+        --link-color: oklch(0% 0 0 /.7);
+        --muted-color: oklch(0% 0 0 /.7);
+        --accent: oklch(0% 0 0);
+        --vernacular-color: oklch(0% 0 0);
+        /*zoom: 80%;*/
+        font-size: 10pt;
+    }
+
+    body:has(.conlang-article) {
+        grid-template-columns: 0px 1fr min(50rem, 90vw) 1fr;
+    }
+
+    .data-gloss, table {
+        break-inside: avoid;
+    }
+
+    .table-overflow {
+        width: 100%;
+        overflow-x: visible;
+    }
+
+    #article-toc, header {
+        display: none;
+    }
+
+}
