@@ -20,7 +20,7 @@
 
 .gloss-ex {
     font-weight: bold;
-    margin-bottom: 0.8em;
+    margin-bottom: 0.2em;
     margin-top: 10px;
 }
 
@@ -30,15 +30,36 @@
 
 .gloss-div {
     position: relative;
+}
+
+.gloss-div:has(.gloss-translation) {
     margin-bottom: 1em;
 }
 
 .gloss-marker-number {
     position: absolute;
+    user-select: none;
     left: 0;
     color: var(--muted-color);
 }
 
 .gloss-marker {
     margin-left: 40px;
+}
+
+.table-overflow.inflection th,
+.table-overflow.inflection td {
+     border: 0;
+}
+
+.table-overflow.inflection th {
+    text-align: center;
+    background: #8881;
+    min-width: 72px;
+}
+
+.table-overflow.inflection.large th {
+    text-align: center;
+    background: #8881;
+    min-width: 96px;
 }

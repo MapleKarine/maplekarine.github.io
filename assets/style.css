@@ -1087,3 +1087,13 @@ body:has(.conlang-article) {
   inline-size: var(--_size);
   display: inline-block;
 }
+
+.abrev-list {
+  column-count: 2;
+}
+
+@media only screen and (max-width: 768px) {
+  .abrev-list {
+    column-count: 1;
+  }
+}
