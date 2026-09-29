@@ -58,6 +58,7 @@ function rz([x, y, z], p) {
 
 
 const ori = [
+	['','',''],
 	['ojimeŋá', 'ojimeŋa', 'monster'],
 	['gã’q','ŋãʔ','happy'],
 	['tiu','tiu','fish'],
@@ -85,6 +86,7 @@ const ori = [
 	['ĩg','ĩŋ','fire'],
 	['surık','səɹ̠ɨk','gold'],
 	['yũ','j̃ũ','food'],
+	['','',''],
 ].flatMap((o,i,a) => {
 	const y = 1-(2*i/(a.length-1));
 	const r = Math.sqrt(1-y*y);
@@ -129,8 +131,7 @@ function keta(keṭarṭa, kaḍa, ki) {
 
 	kaḍa.font = "16px Noto Sans";
 	for (const [o1,o2,o3,o4] of ori) {
-		const [a1, a2, a3] = rz(ry(o4, ki*0.0001), ki*0.0001/13)
-		// const r = Math.max(,) - 40
+		const [a1, a2, a3] = rx(rz(ry(o4, ki*0.0001), ki*0.0001/13), ki*0.0001/41)
 		const [j1, j2] = [a1/(a3-3)*1000, a2/(a3-3)*500];
 		kaḍa.globalAlpha = Math.pow(Math.max(0, a3*0.5+0.3), 2);
 		kaḍa.fillText(o1, keṭarṭa.width/2+j1, keṭarṭa.height/2+j2)
