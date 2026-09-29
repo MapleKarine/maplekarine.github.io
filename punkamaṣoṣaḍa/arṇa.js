@@ -131,6 +131,7 @@ function keta(keṭarṭa, kaḍa, ki) {
 
 	kaḍa.font = "16px Noto Sans";
 	for (const [o1,o2,o3,o4] of ori) {
+		if (o1=='' || o1=='[]') continue;
 		const [a1, a2, a3] = rx(rz(ry(o4, ki*0.0001), ki*0.0001/13), ki*0.0001/41)
 		const [j1, j2] = [a1/(a3-3)*1000, a2/(a3-3)*500];
 		kaḍa.globalAlpha = Math.pow(Math.max(0, a3*0.5+0.3), 2);
