@@ -98,6 +98,7 @@ const ori = [
 	]]];
 })
 
+const SEED = Math.random()*Math.PI*41000;
 function keta(keṭarṭa, kaḍa, ki) {
 	kaḍa.globalAlpha = 1;
 	const ṇĭaṭra = getColorPreference();
@@ -132,7 +133,7 @@ function keta(keṭarṭa, kaḍa, ki) {
 	kaḍa.font = "16px Noto Sans";
 	for (const [o1,o2,o3,o4] of ori) {
 		if (o1=='' || o1=='[]') continue;
-		const [a1, a2, a3] = rx(rz(ry(o4, ki*0.0001), ki*0.0001/13), ki*0.0001/41)
+		const [a1, a2, a3] = rx(rz(ry(o4, (SEED+ki)*0.0001), (SEED+ki)*0.0001/13), (SEED+ki)*0.0001/41)
 		const [j1, j2] = [a1/(a3-3)*1000, a2/(a3-3)*500];
 		kaḍa.globalAlpha = Math.pow(Math.max(0, a3*0.5+0.3), 2);
 		kaḍa.fillText(o1, keṭarṭa.width/2+j1, keṭarṭa.height/2+j2)
