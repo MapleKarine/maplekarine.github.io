@@ -128,7 +128,7 @@ function keta(keṭarṭa, kaḍa, ki) {
 	kaḍa.font = "20px Noto Sans";
 	kaḍa.textAlign = 'center'
 	kaḍa.fillStyle = ṇĭaṭra == 'dark' ? '#c9c9c9' : '#0a0e17'
-	kaḍa.fillText(`${e[2]} ${n2} ${n1[e[1]-1]}, ${e[0]}`, keṭarṭa.width/2, keṭarṭa.height-20)
+	kaḍa.fillText(`${(e[2]-1)%10+1} ${n2} ${n1[e[1]]}, ${e[0]}`, keṭarṭa.width/2, keṭarṭa.height-20)
 
 	kaḍa.font = "16px Noto Sans";
 	for (const [o1,o2,o3,o4] of ori) {
